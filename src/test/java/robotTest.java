@@ -2,6 +2,8 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
+
 public class robotTest extends webTestCase{
 
     private WebDriver driver;
@@ -17,8 +19,8 @@ public class robotTest extends webTestCase{
         WebElement password = driver.findElement(By.id("password"));
 
         //Login and Password
-        login.sendKeys("");
-        password.sendKeys("");
+        login.sendKeys("khairart");
+        password.sendKeys("Oasis!1996");
 
         driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
         driver.findElement(By.linkText("My courses")).click();
@@ -34,13 +36,13 @@ public class robotTest extends webTestCase{
         WebElement text = driver.findElement(By.cssSelector("input[type=\"text\"]"));
         text.sendKeys("86400");
 
-        WebElement path = driver.findElement(By.xpath("//select[@class ='select custom-select custom-select place1'][0]"));
-        Select select = new Select(path);
+        List<WebElement> list =  (List<WebElement>) driver.findElements(By.tagName("select"));
+        Select select = new Select(list.get(0));
         select.selectByVisibleText("Oberon");
 
-        WebElement path2 = driver.findElement(By.xpath("//select[@class ='select custom-select custom-select place1'][1]"));
-        Select select2 = new Select(path2);
+        Select select2 = new Select(list.get(1));
         select2.selectByVisibleText("Rumunsko");
-    }
 
+        driver.findElement(By.id("mod_quiz-next-nav")).click();
+    }
 }
