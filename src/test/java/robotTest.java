@@ -19,8 +19,8 @@ public class robotTest extends webTestCase{
         WebElement password = driver.findElement(By.id("password"));
 
         //Login and Password
-        login.sendKeys("khairart");
-        password.sendKeys("Oasis!1996");
+        login.sendKeys("");
+        password.sendKeys("");
 
         driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
         driver.findElement(By.linkText("My courses")).click();
